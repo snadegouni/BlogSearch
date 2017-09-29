@@ -1,4 +1,15 @@
 <h1>Listing blog posts</h1>
+<%= form_with scope: :criteria,url: 'search/show',local: true do |form| %>
+<p>
+    <%= form.label :text %><br>
+    <%= form.text_area :text %>
+  </p>
+ 
+  <p>
+    <%= form.submit "Search blog"%>
+  </p>
+<% end %>
+
 <ul id="posts">
   <%= render partial: 'search/post', collection: @posts %>
 </ul>
