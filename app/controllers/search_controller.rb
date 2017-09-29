@@ -7,8 +7,9 @@ class SearchController < ApplicationController
   end
   def show
     elasticsearch = ElasticSearchRestApi.new
-    results = elasticsearch.posts('How to')#filters
+    results = elasticsearch.posts(params[:criteria][:text])#filters
     @posts = results
+    puts params[:criteria][:text]
     puts 'I am in show'
     render 'index'
   end

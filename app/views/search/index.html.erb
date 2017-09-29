@@ -1,5 +1,5 @@
 <h1>Listing blog posts</h1>
-<%= form_with scope: :criteria,url: 'search/show',local: true do |form| %>
+<%= form_with scope: :criteria,url: search_show_path,local: true do |form| %>
 <p>
     <%= form.label :text %><br>
     <%= form.text_area :text %>
