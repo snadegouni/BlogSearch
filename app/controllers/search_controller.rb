@@ -7,7 +7,7 @@ class SearchController < ApplicationController
   end
   def show
     elasticsearch = ElasticSearchRestApi.new
-    results = elasticsearch.posts(params[:criteria][:text])#filters
+    results = elasticsearch.getposts(params[:criteria][:text])#filters
     @posts = results
     render 'index'
   end

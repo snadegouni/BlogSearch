@@ -18,7 +18,7 @@ module SearchHelper
         include HTTParty
         base_uri "http://localhost:9200/blog"
 
-        def posts(query)
+        def getposts(query)
             response = self.class.get('/elasticsearch/_search?q='+query)
             results = JSON.parse(response.body, object_class: OpenStruct)
             searchresults = results.hits.hits.map {|q| SearchResult.new(q._source.title,q._source.text,q._source.link)}
