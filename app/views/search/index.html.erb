@@ -1,4 +1,6 @@
 <h1>Listing blog posts</h1>
+<%= link_to 'Admin click here to create new posts', admin_index_path %>
+
 <%= form_with scope: :criteria,url: search_show_path,local: true do |form| %>
 <p>
     <%= form.label :text %><br>
@@ -13,4 +15,3 @@
 <ul id="posts">
   <%= render partial: 'search/post', collection: @posts %>
 </ul>
-

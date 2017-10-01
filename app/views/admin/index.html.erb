@@ -1,0 +1,22 @@
+<%= form_with scope: :post, url: admin_create_path, local: true do |form| %>
+ <h1>Create your post here:</h1>
+  <p>
+    <%= form.label :title %><br>
+    <%= form.text_field :title ,:size=>"50"%>
+  </p>
+ 
+  <p>
+    <%= form.label :text %><br>
+    <%= form.text_area :text ,:size=>"100"%>
+  </p>
+  <p>
+    <%= form.label :link %><br>
+    <%= form.text_area :link,:size=>"100" %>
+  </p>
+ 
+  <p>
+    <%= form.submit %>
+  </p>
+ 
+<% end %>
+<%= link_to 'Go Back','search/index' %>
