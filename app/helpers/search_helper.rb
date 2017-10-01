@@ -23,5 +23,15 @@ module SearchHelper
             results = JSON.parse(response.body, object_class: OpenStruct)
             searchresults = results.hits.hits.map {|q| SearchResult.new(q._source.title,q._source.text,q._source.link)}
         end
+        def createposts(title,description,weblink)
+            response = self.class.post('/elasticsearch/',
+            :body => 
+                    {
+                    :title =>  title,
+                    :text => description,
+                    :link => weblink
+                    }.to_json,
+            :headers => { 'Content-Type' => 'application/json' } )
+        end
     end
 end
